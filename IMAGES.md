@@ -178,7 +178,7 @@ each `<img>` tag:
 | 12 | Western Bean Cutworm   | `corn/wbc-1`              | `corn/wbc-2`              |
 | 13 | Black Cutworm          | `corn/black-cutworm-1`    | `corn/black-cutworm-2`    |
 | 14 | Corn Leaf Aphid        | `corn/corn-aphid-1`       | `corn/corn-aphid-2`       |
-| 15 | Silk Beetle            | `corn/silk-beetle-1`      | `corn/silk-beetle-2`      |
+| 15 | Japanese Beetle        | `corn/silk-beetle-1`      | `corn/silk-beetle-2`      |
 
 ### Soybeans — Diseases
 
