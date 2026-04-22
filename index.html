@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CornbeltAI — Crop Disease & Pest Triage</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Demo trigger button — in the real platform, this popup is opened
+       by the host page instead of this button. -->
+  <button id="open-popup-btn">🌽 Open Disease &amp; Pest Guide</button>
+
+  <!-- ═══════════════════════════════════════════════════════
+       OVERLAY / POPUP
+  ═══════════════════════════════════════════════════════ -->
+  <div id="popup-overlay" class="overlay" role="dialog" aria-modal="true"
+       aria-labelledby="popup-heading">
+
+    <div class="popup">
+
+      <!-- ── Header ──────────────────────────────────────── -->
+      <div class="popup-header">
+        <div class="popup-header-top">
+          <div>
+            <div class="popup-title" id="popup-heading">
+              Crop Disease &amp; Pest Identification Guide
+            </div>
+            <div class="popup-subtitle">
+              Top 15 diseases &amp; pests — Corn and Soybeans
+            </div>
+          </div>
+          <button id="close-popup-btn" class="close-btn" aria-label="Close">✕</button>
+        </div>
+
+        <!-- Crop Toggle Tabs -->
+        <div class="crop-tabs" role="tablist">
+          <button class="crop-tab active" role="tab" data-crop="corn"
+                  aria-controls="panel-corn" aria-selected="true">
+            <span class="tab-icon">🌽</span> Corn
+          </button>
+          <button class="crop-tab" role="tab" data-crop="soybeans"
+                  aria-controls="panel-soybeans" aria-selected="false">
+            <span class="tab-icon">🫘</span> Soybeans
+          </button>
+        </div>
+      </div><!-- /popup-header -->
+
+      <!-- ── Scrollable Body ─────────────────────────────── -->
+      <div class="popup-body">
+
+        <!-- ════════════════════════════════════════════════
+             CORN PANEL
+        ════════════════════════════════════════════════ -->
+        <div id="panel-corn" class="crop-panel active" role="tabpanel">
+
+          <div class="section-label">🌽 Corn — Diseases</div>
+          <div class="entries-grid">
+
+            <!-- 1 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">1</span>
+                <div>
+                  <div class="card-title">Gray Leaf Spot</div>
+                  <div class="card-scientific">Cercospora zeae-maydis</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <!-- IMAGE SLOT: corn/gray-leaf-spot-1.jpg -->
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Field Symptom</span>
+                  <span class="img-slot-id">corn/gray-leaf-spot-1</span>
+                </div>
+                <!-- IMAGE SLOT: corn/gray-leaf-spot-2.jpg -->
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Close-up Lesion</span>
+                  <span class="img-slot-id">corn/gray-leaf-spot-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Fungal disease favored by warm, humid conditions. One of the most
+                  yield-limiting foliar diseases in corn across the Corn Belt.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Long, rectangular, tan-to-gray lesions with
+                  distinct parallel edges running between leaf veins. Lesions may coalesce
+                  to blight entire leaves.
+                </div>
+              </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">2</span>
+                <div>
+                  <div class="card-title">Northern Corn Leaf Blight</div>
+                  <div class="card-scientific">Exserohilum turcicum</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Field Symptom</span>
+                  <span class="img-slot-id">corn/nclb-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Spore Detail</span>
+                  <span class="img-slot-id">corn/nclb-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Common fungal leaf blight favored by moderate temperatures and
+                  extended wet periods. Causes significant yield loss when infection
+                  occurs before or at silking.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Large (1–6 in.), cigar-shaped, grayish-green
+                  to tan lesions on leaves. Dark, sooty spore masses may appear within
+                  lesions under humid conditions.
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">3</span>
+                <div>
+                  <div class="card-title">Common Rust</div>
+                  <div class="card-scientific">Puccinia sorghi</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Upper Leaf Surface</span>
+                  <span class="img-slot-id">corn/common-rust-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Pustule Close-up</span>
+                  <span class="img-slot-id">corn/common-rust-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Foliar fungal disease spread by windborne spores. Most damaging
+                  when infection occurs early and on susceptible hybrids.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Small, powdery, brick-red to cinnamon-brown
+                  pustules scattered on both upper and lower leaf surfaces. Pustules
+                  turn dark brown-black late in the season.
+                </div>
+              </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">4</span>
+                <div>
+                  <div class="card-title">Tar Spot</div>
+                  <div class="card-scientific">Phyllachora maydis</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Leaf Stromata</span>
+                  <span class="img-slot-id">corn/tar-spot-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Fish-eye Lesion</span>
+                  <span class="img-slot-id">corn/tar-spot-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Rapidly emerging disease across the Midwest. Can cause severe yield
+                  losses (up to 50+ bu/ac) in susceptible hybrids during favorable
+                  cool, humid conditions.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Small, raised, shiny black spots (stromata)
+                  that cannot be rubbed off. "Fish-eye" lesions have a tan halo
+                  surrounding a dark center.
+                </div>
+              </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">5</span>
+                <div>
+                  <div class="card-title">Goss's Wilt</div>
+                  <div class="card-scientific">Clavibacter michiganensis subsp. nebraskensis</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Leaf Blight</span>
+                  <span class="img-slot-id">corn/goss-wilt-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Bacterial Freckles</span>
+                  <span class="img-slot-id">corn/goss-wilt-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Bacterial disease spread by hail, wind-driven rain, and leaf-feeding
+                  insects. Most damaging when infection occurs early in the season.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Water-soaked, pale green to tan streaks
+                  running the length of leaves. Shiny, dried bacterial exudate
+                  ("freckles") within lesions is diagnostic.
+                </div>
+              </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">6</span>
+                <div>
+                  <div class="card-title">Gibberella Ear Rot</div>
+                  <div class="card-scientific">Fusarium graminearum</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Pink/Red Mold</span>
+                  <span class="img-slot-id">corn/gibberella-ear-rot-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Kernel Damage</span>
+                  <span class="img-slot-id">corn/gibberella-ear-rot-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Fungal ear disease that can produce mycotoxins (deoxynivalenol/DON
+                  and zearalenone) harmful to livestock. Favored by wet conditions at
+                  silking and grain fill.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Pink to reddish-white mold starting at
+                  the tip of the ear and progressing downward. Infected kernels may
+                  be lightweight and shriveled.
+                </div>
+              </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">7</span>
+                <div>
+                  <div class="card-title">Stalk Rot Complex</div>
+                  <div class="card-scientific">Fusarium spp. / Gibberella zeae</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Stalk Cross-Section</span>
+                  <span class="img-slot-id">corn/stalk-rot-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Lodged Plants</span>
+                  <span class="img-slot-id">corn/stalk-rot-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Multiple fungal pathogens cause internal stalk decay, leading to
+                  premature death and lodging. Plants stressed by foliar disease,
+                  drought, or compaction are most vulnerable.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Lower internodes that are soft and discolored.
+                  The "push test" — a plant that falls when pushed — indicates stalk rot.
+                  Pith tissue is shredded or hollow.
+                </div>
+              </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">8</span>
+                <div>
+                  <div class="card-title">Southern Rust</div>
+                  <div class="card-scientific">Puccinia polysora</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Orange Pustules</span>
+                  <span class="img-slot-id">corn/southern-rust-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Upper Leaf Surface</span>
+                  <span class="img-slot-id">corn/southern-rust-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  More aggressive than common rust. Spores migrate north from the
+                  Gulf each season. Epidemics during grain fill can cause significant
+                  yield loss if not managed with fungicide.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Small, densely packed, bright orange to
+                  tan pustules concentrated mainly on the upper leaf surface. Lesions
+                  are more circular than common rust.
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /entries-grid (diseases) -->
+
+          <div class="section-label">🐛 Corn — Pests</div>
+          <div class="entries-grid">
+
+            <!-- 9 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">9</span>
+                <div>
+                  <div class="card-title">Corn Rootworm</div>
+                  <div class="card-scientific">Diabrotica virgifera virgifera / D. barberi</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Root Pruning</span>
+                  <span class="img-slot-id">corn/corn-rootworm-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Adult Beetle</span>
+                  <span class="img-slot-id">corn/corn-rootworm-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  The most economically damaging pest of corn in North America. Larval
+                  root feeding leads to lodging, and adult silk clipping can affect
+                  pollination.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Goose-necking (bent lower stalks), root
+                  masses pruned to the base, and plants that pull up easily. Adult
+                  beetles are yellow-green with black stripes.
+                </div>
+              </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">10</span>
+                <div>
+                  <div class="card-title">European Corn Borer</div>
+                  <div class="card-scientific">Ostrinia nubilalis</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Stalk Entry Holes</span>
+                  <span class="img-slot-id">corn/ecb-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Larva in Stalk</span>
+                  <span class="img-slot-id">corn/ecb-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Historically one of the most damaging corn pests. Bt hybrids have
+                  significantly reduced impact, but populations persist in non-Bt fields
+                  and field edges.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> "Shot-hole" feeding on whorl leaves,
+                  sawdust-like frass at entry holes, broken tassels, and stalk tunneling
+                  that can cause lodging.
+                </div>
+              </div>
+            </div>
+
+            <!-- 11 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">11</span>
+                <div>
+                  <div class="card-title">Corn Earworm</div>
+                  <div class="card-scientific">Helicoverpa zea</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Tip Damage</span>
+                  <span class="img-slot-id">corn/corn-earworm-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Caterpillar on Ear</span>
+                  <span class="img-slot-id">corn/corn-earworm-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Primary pest of the ear. Larvae enter through the silk channel and
+                  feed on kernels at the tip. Also vectors ear molds and mycotoxins.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Frass and damaged tip kernels when husks
+                  are peeled. Caterpillars are cream to tan with brown stripes and range
+                  from ½–2 inches long.
+                </div>
+              </div>
+            </div>
+
+            <!-- 12 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">12</span>
+                <div>
+                  <div class="card-title">Western Bean Cutworm</div>
+                  <div class="card-scientific">Striacosta albicosta</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Egg Mass on Leaf</span>
+                  <span class="img-slot-id">corn/wbc-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Larva in Ear</span>
+                  <span class="img-slot-id">corn/wbc-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Range has expanded eastward into the Corn Belt. Early larval feeding
+                  occurs on anthers and silk; late feeding damages kernels and promotes
+                  mold development.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Dome-shaped egg masses on upper leaf
+                  surface near the ear. Older larvae feed inside the husk; look for
+                  frass and multiple larvae per ear.
+                </div>
+              </div>
+            </div>
+
+            <!-- 13 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">13</span>
+                <div>
+                  <div class="card-title">Black Cutworm</div>
+                  <div class="card-scientific">Agrotis ipsilon</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Cut Plants</span>
+                  <span class="img-slot-id">corn/black-cutworm-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Larva ID</span>
+                  <span class="img-slot-id">corn/black-cutworm-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Migratory pest that can cause severe stand loss in early-planted corn.
+                  Larvae cut through stems at or below the soil surface. Larvae from
+                  moths arriving in April–May cause the greatest injury.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Seedling wilting, completely cut plants
+                  lying on the soil, and larvae (dark gray, greasy-looking) found just
+                  below the surface near damaged plants.
+                </div>
+              </div>
+            </div>
+
+            <!-- 14 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">14</span>
+                <div>
+                  <div class="card-title">Corn Leaf Aphid</div>
+                  <div class="card-scientific">Rhopalosiphum maidis</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Tassel Colony</span>
+                  <span class="img-slot-id">corn/corn-aphid-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Honeydew Sooty Mold</span>
+                  <span class="img-slot-id">corn/corn-aphid-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Can build to very high populations quickly in tassels and upper
+                  leaves. Excess honeydew promotes sooty mold and interferes with
+                  photosynthesis. Also transmits Barley Yellow Dwarf Virus.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Dense, blue-green aphid colonies in the
+                  tassel and on upper leaf surfaces. Sticky honeydew and black sooty
+                  mold are secondary indicators.
+                </div>
+              </div>
+            </div>
+
+            <!-- 15 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">15</span>
+                <div>
+                  <div class="card-title">Japanese Beetle / Silk Beetle</div>
+                  <div class="card-scientific">Popillia japonica / Diabrotica spp.</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Silk Feeding Damage</span>
+                  <span class="img-slot-id">corn/silk-beetle-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Tip Fill Gaps</span>
+                  <span class="img-slot-id">corn/silk-beetle-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Several beetle species (including Japanese beetles) feed heavily on
+                  corn silks during pollination. Heavy feeding at emergence before
+                  pollination is complete can reduce kernel set significantly.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Silks clipped to less than ½ inch before
+                  50% pollen shed is complete. Poor tip fill and incomplete kernel rows
+                  can indicate silk feeding during pollination.
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /entries-grid (pests) -->
+
+          <!-- Corn Disclaimer -->
+          <div class="disclaimer">
+            <span class="disclaimer-icon">⚠️</span>
+            <span>
+              <strong>Disclaimer:</strong> This guide is intended as a general reference
+              tool to assist in preliminary field scouting. Accurate diagnosis of crop
+              diseases and pest damage often requires laboratory confirmation, tissue
+              testing, or on-site evaluation. <strong>Always consult a certified crop
+              advisor (CCA), university extension specialist, or licensed agronomist
+              before making major management or treatment decisions.</strong> Misidentification
+              can lead to unnecessary chemical use or missed treatment windows. Cornbelt AI
+              assumes no liability for agronomic decisions made solely on the basis of
+              this guide.
+            </span>
+          </div>
+
+        </div><!-- /panel-corn -->
+
+
+        <!-- ════════════════════════════════════════════════
+             SOYBEAN PANEL
+        ════════════════════════════════════════════════ -->
+        <div id="panel-soybeans" class="crop-panel" role="tabpanel">
+
+          <div class="section-label">🫘 Soybeans — Diseases</div>
+          <div class="entries-grid">
+
+            <!-- 1 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">1</span>
+                <div>
+                  <div class="card-title">Sudden Death Syndrome</div>
+                  <div class="card-scientific">Fusarium virguliforme</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Foliar Symptoms</span>
+                  <span class="img-slot-id">soybeans/sds-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Root Rot</span>
+                  <span class="img-slot-id">soybeans/sds-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  One of the most yield-limiting soybean diseases. Root infection occurs
+                  early, but foliar symptoms appear during reproductive stages when
+                  toxins move from roots to leaves.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Interveinal chlorosis and necrosis on upper
+                  leaves. Leaves die and fall, leaving petioles attached. Roots and lower
+                  stem are brown; interior pith remains white (unlike brown stem rot).
+                </div>
+              </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">2</span>
+                <div>
+                  <div class="card-title">Soybean Cyst Nematode</div>
+                  <div class="card-scientific">Heterodera glycines (SCN)</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Cysts on Roots</span>
+                  <span class="img-slot-id">soybeans/scn-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Stunted Patches</span>
+                  <span class="img-slot-id">soybeans/scn-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  The most economically damaging pathogen of soybeans in North America.
+                  Infestations often cause little visible above-ground symptoms while
+                  silently reducing yields.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Yellow, stunted circular patches in fields.
+                  Tiny white-to-yellow lemon-shaped cysts visible on roots when pulled
+                  early season. Soil sampling is the most reliable diagnostic tool.
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">3</span>
+                <div>
+                  <div class="card-title">White Mold (Sclerotinia Stem Rot)</div>
+                  <div class="card-scientific">Sclerotinia sclerotiorum</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Cottony Mycelium</span>
+                  <span class="img-slot-id">soybeans/white-mold-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Sclerotia on Stem</span>
+                  <span class="img-slot-id">soybeans/white-mold-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Major disease in northern Corn Belt and high-yield environments. Favored
+                  by cool, wet conditions during flowering and dense canopies that reduce
+                  airflow.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> White, cottony mycelium on stems at or near
+                  the soil line. Stems become bleached and shredded. Hard, black, pellet-like
+                  sclerotia inside and outside infected stems.
+                </div>
+              </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">4</span>
+                <div>
+                  <div class="card-title">Phytophthora Root &amp; Stem Rot</div>
+                  <div class="card-scientific">Phytophthora sojae</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Brown Stem Lesion</span>
+                  <span class="img-slot-id">soybeans/phytophthora-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Damping-off Seedlings</span>
+                  <span class="img-slot-id">soybeans/phytophthora-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Favored by saturated soils. Can cause pre-emergence damping-off and
+                  post-emergence stem rot. Resistant varieties and seed treatments with
+                  mefenoxam are key management tools.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Dark brown discoloration of the lower stem,
+                  progressing upward from the soil line. Leaves may remain attached but
+                  turn yellow then brown. Roots are dark and rotted.
+                </div>
+              </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">5</span>
+                <div>
+                  <div class="card-title">Brown Stem Rot</div>
+                  <div class="card-scientific">Cadophora gregata</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Pith Discoloration</span>
+                  <span class="img-slot-id">soybeans/bsr-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Interveinal Chlorosis</span>
+                  <span class="img-slot-id">soybeans/bsr-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Soil-borne fungal disease that is often confused with SDS. Most
+                  damaging in fields with continuous soybean production and cool,
+                  wet soil conditions early in the season.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Brown discoloration of the pith inside the
+                  stem (diagnostic; pith is white in SDS). Foliar interveinal chlorosis
+                  and necrosis appear similar to SDS during reproductive stages.
+                </div>
+              </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">6</span>
+                <div>
+                  <div class="card-title">Frogeye Leaf Spot</div>
+                  <div class="card-scientific">Cercospora sojina</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Characteristic Lesions</span>
+                  <span class="img-slot-id">soybeans/frogeye-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Lesion Detail</span>
+                  <span class="img-slot-id">soybeans/frogeye-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Fungal foliar disease that has developed resistance to strobilurin
+                  fungicides in some areas. Can defoliate fields and cause seed infection
+                  in severe cases.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Circular to angular lesions with reddish-brown
+                  margins and gray to light tan centers on leaves. The "frog eye"
+                  appearance — pale center with darker border — is diagnostic.
+                </div>
+              </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">7</span>
+                <div>
+                  <div class="card-title">Septoria Brown Spot</div>
+                  <div class="card-scientific">Septoria glycines</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Lower Canopy Spots</span>
+                  <span class="img-slot-id">soybeans/septoria-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Premature Yellowing</span>
+                  <span class="img-slot-id">soybeans/septoria-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  One of the most common foliar diseases of soybeans. While usually a
+                  minor yield reducer, severe outbreaks during early reproductive stages
+                  can cause significant defoliation.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Small, irregular, dark brown spots on lower
+                  leaves early in the season. Infected leaves yellow prematurely and
+                  drop, starting from the bottom of the canopy upward.
+                </div>
+              </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">8</span>
+                <div>
+                  <div class="card-title">Soybean Mosaic Virus</div>
+                  <div class="card-scientific">SMV (Potyvirus)</div>
+                </div>
+                <span class="card-type-badge badge-disease">Disease</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Mosaic Leaf Mottling</span>
+                  <span class="img-slot-id">soybeans/smv-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Stunted Plant</span>
+                  <span class="img-slot-id">soybeans/smv-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  One of the most prevalent soybean viruses worldwide. Transmitted
+                  by aphids in a non-persistent manner. Seed transmission also occurs.
+                  Early infections cause the greatest yield loss.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Light and dark green mottling (mosaic) on
+                  leaves, leaf puckering, distortion, and rugosity. Infected plants are
+                  often stunted with reduced pod set.
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /entries-grid (diseases) -->
+
+          <div class="section-label">🐛 Soybeans — Pests</div>
+          <div class="entries-grid">
+
+            <!-- 9 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">9</span>
+                <div>
+                  <div class="card-title">Soybean Aphid</div>
+                  <div class="card-scientific">Aphis glycines</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Colony on Stem</span>
+                  <span class="img-slot-id">soybeans/soybean-aphid-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Winged Adult</span>
+                  <span class="img-slot-id">soybeans/soybean-aphid-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  The only aphid species that colonizes soybeans in North America. Can
+                  reach outbreak levels rapidly. Economic threshold is 250 aphids per
+                  plant on 80% of plants, with populations still increasing.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Small (1–1.5 mm), pale yellow to light green
+                  aphids on undersides of leaves and growing points. Honeydew and sooty
+                  mold on leaves are secondary signs.
+                </div>
+              </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">10</span>
+                <div>
+                  <div class="card-title">Bean Leaf Beetle</div>
+                  <div class="card-scientific">Cerotoma trifurcata</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Leaf Feeding Holes</span>
+                  <span class="img-slot-id">soybeans/bean-leaf-beetle-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Adult Beetle</span>
+                  <span class="img-slot-id">soybeans/bean-leaf-beetle-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Early-season adults can cause significant stand loss by clipping
+                  cotyledons and stems. Also vectors Bean Pod Mottle Virus. Pod feeding
+                  by late-season adults can reduce seed quality.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Round, clean-edged holes in leaves and
+                  cotyledons. Adults are highly variable in color (red, tan, yellow)
+                  but typically have 4 black spots and a black triangle at the head.
+                </div>
+              </div>
+            </div>
+
+            <!-- 11 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">11</span>
+                <div>
+                  <div class="card-title">Brown &amp; Green Stink Bugs</div>
+                  <div class="card-scientific">Euschistus servus / Chinavia hilaris</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Pod Feeding Damage</span>
+                  <span class="img-slot-id">soybeans/stink-bug-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Adult on Pod</span>
+                  <span class="img-slot-id">soybeans/stink-bug-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Pod feeders that inject enzymes during feeding, causing shriveled and
+                  discolored seeds. Damage is most significant during R3–R6. Rising
+                  populations across the Midwest in recent years.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> "Staygreen" syndrome — pods and stems
+                  remain green while the rest of the plant matures. Shriveled, wrinkled,
+                  or yeast-infected seeds inside pods.
+                </div>
+              </div>
+            </div>
+
+            <!-- 12 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">12</span>
+                <div>
+                  <div class="card-title">Two-Spotted Spider Mite</div>
+                  <div class="card-scientific">Tetranychus urticae</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Stippled Leaves</span>
+                  <span class="img-slot-id">soybeans/spider-mite-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Webbing on Leaflet</span>
+                  <span class="img-slot-id">soybeans/spider-mite-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Outbreak pest during hot, dry summers. Populations can explode rapidly
+                  and cause severe defoliation and yield loss. Pyrethroid insecticides
+                  can worsen outbreaks by killing natural enemies.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Yellow stippling (tiny dots) on upper leaf
+                  surface, fine webbing on undersides of leaves. Infested leaves turn
+                  bronze, then brown. Begin scouting field edges during drought.
+                </div>
+              </div>
+            </div>
+
+            <!-- 13 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">13</span>
+                <div>
+                  <div class="card-title">Dectes Stem Borer</div>
+                  <div class="card-scientific">Dectes texanus</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Stem Tunneling</span>
+                  <span class="img-slot-id">soybeans/dectes-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Girdled Stem</span>
+                  <span class="img-slot-id">soybeans/dectes-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Longhorn beetle whose larvae tunnel through the main stem.
+                  Larvae girdle the stem base before overwintering, causing premature
+                  plant death and lodging prior to harvest.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Wilting of a single branch (petiole girdling).
+                  Cut stems show a central tunnel packed with frass. Late-season girdling
+                  at the base causes premature lodging and harvest losses.
+                </div>
+              </div>
+            </div>
+
+            <!-- 14 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">14</span>
+                <div>
+                  <div class="card-title">Soybean Looper / Green Cloverworm</div>
+                  <div class="card-scientific">Chrysodeixis includens / Hypena scabra</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Defoliation Pattern</span>
+                  <span class="img-slot-id">soybeans/defoliator-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Caterpillar on Leaf</span>
+                  <span class="img-slot-id">soybeans/defoliator-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Sporadic but occasionally severe defoliating pests. Economic thresholds
+                  are based on percent defoliation: 20% pre-bloom, 15% during R1–R6,
+                  and 25% after R6.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Ragged leaf edges and skeletonized leaves;
+                  caterpillars loop when walking. Green cloverworm is bright green with
+                  white stripes. Scout for frass and caterpillars under the canopy.
+                </div>
+              </div>
+            </div>
+
+            <!-- 15 -->
+            <div class="entry-card">
+              <div class="card-header">
+                <span class="card-number">15</span>
+                <div>
+                  <div class="card-title">Threecornered Alfalfa Hopper</div>
+                  <div class="card-scientific">Spissistilus festinus</div>
+                </div>
+                <span class="card-type-badge badge-pest">Pest</span>
+              </div>
+              <div class="card-images">
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Stem Girdling</span>
+                  <span class="img-slot-id">soybeans/tah-1</span>
+                </div>
+                <div class="img-placeholder">
+                  <span class="img-icon">🖼️</span>
+                  <span class="img-label">Adult Hopper</span>
+                  <span class="img-slot-id">soybeans/tah-2</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-description">
+                  Primarily a problem in the southern and central Corn Belt. Adults and
+                  nymphs girdle stems with their feeding rings, disrupting phloem flow,
+                  which can cause yield loss and lodging.
+                </div>
+                <div class="card-symptoms">
+                  <strong>Look for:</strong> Ring-shaped feeding scars on the main stem
+                  at or below the cotyledon node. Girdled plants may be stunted, yellowed,
+                  or lodged. Adults are small, bright green, and wedge-shaped.
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /entries-grid (pests) -->
+
+          <!-- Soybean Disclaimer -->
+          <div class="disclaimer">
+            <span class="disclaimer-icon">⚠️</span>
+            <span>
+              <strong>Disclaimer:</strong> This guide is intended as a general reference
+              tool to assist in preliminary field scouting. Accurate diagnosis of crop
+              diseases and pest damage often requires laboratory confirmation, tissue
+              testing, or on-site evaluation. <strong>Always consult a certified crop
+              advisor (CCA), university extension specialist, or licensed agronomist
+              before making major management or treatment decisions.</strong> Misidentification
+              can lead to unnecessary chemical use or missed treatment windows. Cornbelt AI
+              assumes no liability for agronomic decisions made solely on the basis of
+              this guide.
+            </span>
+          </div>
+
+        </div><!-- /panel-soybeans -->
+
+      </div><!-- /popup-body -->
+    </div><!-- /popup -->
+  </div><!-- /overlay -->
+
+  <script src="script.js"></script>
+</body>
+</html>
